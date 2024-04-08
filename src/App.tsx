@@ -13,28 +13,23 @@ function App() {
     return (
         <div className="App">
             <AppTitle/>
-            <Rating value={ratingValue} onClick={setRatingValue}/>
+            <Rating value={ratingValue}
+                    onClick={setRatingValue}/>
+            <UncontrolledRating/>
             <Accordion titleValue={"MyMenu"}
                        setAccordionCollapsed={setAccordionCollapsed}
                        collapsed={accordionCollapsed}
                        itemOneValue={"Item1"}
                        itemTwoValue={"Item2"}
-                       itemThreeValue={"Item3"} />
-
-            {/*<UncontrolledAccordion titleValue={"Menu"}
-                                   itemOneValue={"Item1"}
-                                   itemTwoValue={"Item2"}
-                                   itemThreeValue={"Item3"}
+                       itemThreeValue={"Item3"}
             />
             <UncontrolledAccordion titleValue={"Users"}
                                    itemOneValue={"Микки"}
                                    itemTwoValue={"Дональд"}
                                    itemThreeValue={"Скрудж"}
             />
-            <UncontrolledRating/>
             <OnOff />
-            <OnOff />*/}
-            <UncontrolledRating/>
+            <OnOff />
         </div>
     );
 }

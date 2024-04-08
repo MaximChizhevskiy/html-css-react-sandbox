@@ -20,7 +20,8 @@ function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
 function UncontrolledAccordionTitle(props: UncontrolledAccordionTitlePropsType) {
     console.log("UncontrolledAccordionTitle rendered")
     return (
-        <h3 onClick={() => {props.onClick()}} style={{cursor: "pointer"}}>{props.title}</h3>
+        <h3 onClick={() => {props.onClick()}}
+            style={{cursor: "pointer"}}>{props.title}</h3>
     )
 }
 
