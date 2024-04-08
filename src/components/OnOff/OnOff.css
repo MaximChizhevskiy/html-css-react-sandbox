@@ -1,0 +1,12 @@
+.On {
+  border: 1px solid black;
+    width: 100px;
+    height: 50px;
+}
+
+.Off {
+    border: 1px solid black;
+    width: 100px;
+    height: 50px;
+}
+

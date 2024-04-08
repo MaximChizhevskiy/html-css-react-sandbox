@@ -1,9 +1,15 @@
-function Accordion(props: AccordionPropsType) {
-    console.log("Accordion rendered")
+import {useState} from "react";
+
+function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
+    console.log("UncontrolledAccordion rendered")
+
+    let [collapsed, setCollapsed] = useState(false)
     return (
         <div>
-            <AccordionTitle title={props.titleValue}/>
-            {!props.collapsed &&<AccordionBody itemOne={props.itemOneValue}
+            <UncontrolledAccordionTitle title={props.titleValue}
+            onClick = {() => {setCollapsed(!collapsed)}}/>
+            {/*<button onClick={() => {setCollapsed(!collapsed)}}>Toggle</button>*/}
+            {!collapsed &&<UncontrolledAccordionBody itemOne={props.itemOneValue}
                                                itemTwo={props.itemTwoValue}
                                                itemThree={props.itemThreeValue}
             />}
@@ -11,14 +17,14 @@ function Accordion(props: AccordionPropsType) {
     )
 }
 
-function AccordionTitle(props: AccordionTitlePropsType) {
-    console.log("AccordionTitle rendered")
+function UncontrolledAccordionTitle(props: UncontrolledAccordionTitlePropsType) {
+    console.log("UncontrolledAccordionTitle rendered")
     return (
-        <h3>{props.title}</h3>
+        <h3 onClick={() => {props.onClick()}} style={{cursor: "pointer"}}>{props.title}</h3>
     )
 }
 
-function AccordionBody(props: AccordionBodyPropsType) {
+function UncontrolledAccordionBody(props: UncontrolledAccordionBodyPropsType) {
     console.log("AccordionBody rendered")
     return (
         <ul>
@@ -30,22 +36,23 @@ function AccordionBody(props: AccordionBodyPropsType) {
 }
 
 //===================================
-type AccordionTitlePropsType = {
+type UncontrolledAccordionTitlePropsType = {
     title: string
+    onClick: () => void
 }
 
-type AccordionBodyPropsType = {
+type UncontrolledAccordionBodyPropsType = {
     itemOne: string
     itemTwo: string
     itemThree: string
 }
 
-type AccordionPropsType = {
+type UncontrolledAccordionPropsType = {
     titleValue: string
-    collapsed: boolean
+    //collapsed: boolean
     itemOneValue: string
     itemTwoValue: string
     itemThreeValue: string
 }
 
-export default Accordion
+export default UncontrolledAccordion
