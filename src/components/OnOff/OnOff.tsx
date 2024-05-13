@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function OnOff() {
+function UncontrolledOnOff() {
     let [on, setOn] = useState(false)
 
     const onButtonStyle = {
@@ -46,4 +46,4 @@ function OnOff() {
     value: boolean
 }*/
 
-export default OnOff;
+export default UncontrolledOnOff;
