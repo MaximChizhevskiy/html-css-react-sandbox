@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
+export function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
     console.log("UncontrolledAccordion rendered")
 
     let [collapsed, setCollapsed] = useState(false)
@@ -56,4 +56,3 @@ type UncontrolledAccordionPropsType = {
     itemThreeValue: string
 }
 
-export default UncontrolledAccordion

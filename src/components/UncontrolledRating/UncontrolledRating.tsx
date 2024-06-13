@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-function UncontrolledRating() {
+export function UncontrolledRating() {
     console.log("UncontrolledRating rendered")
     const [value, setValue] = useState(0)
     return (
@@ -38,5 +38,3 @@ type RatingPropsType = {
     value: number
 }
 
-
-export default UncontrolledRating
