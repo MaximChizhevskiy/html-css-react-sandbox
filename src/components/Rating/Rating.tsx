@@ -1,4 +1,4 @@
-function Rating(props: RatingPropsType) {
+export function Rating(props: RatingPropsType) {
     console.log("Rating rendered")
     return (
      <div>
@@ -34,5 +34,3 @@ type RatingPropsType = {
 }
 
 export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5
-
-export default Rating

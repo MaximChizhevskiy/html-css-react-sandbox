@@ -1,4 +1,4 @@
-function Accordion(props: AccordionPropsType) {
+export function Accordion(props: AccordionPropsType) {
     console.log("Accordion rendered")
     return (
         <div>
@@ -56,4 +56,3 @@ type AccordionPropsType = {
     setAccordionCollapsed: (collapsed: boolean) => void
 }
 
-export default Accordion

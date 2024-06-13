@@ -1,15 +1,17 @@
 import './App.css';
-import Accordion from "./components/Accordion/Accordion";
-import Rating, {RatingValueType} from "./components/Rating/Rating";
-import OnOff from "./components/OnOff/OnOff";
+import {Accordion} from "./components/Accordion/Accordion";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
+import UncontrolledOnOff from "./components/UncontrolledOnOff/UncontrolledOnOff";
 import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import UncontrolledRating from "./components/UncontrolledRating/UncontrolledRating";
 import {useState} from "react";
+import {OnOff, ValueType} from "./components/OnOff/OnOff";
 
 function App() {
     console.log("App rendered")
     const [ratingValue, setRatingValue] = useState<RatingValueType>(3)
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+    const [onOff, setOnOff] = useState<ValueType>("off")
     return (
         <div className="App">
             <AppTitle/>
@@ -28,8 +30,9 @@ function App() {
                                    itemTwoValue={"Дональд"}
                                    itemThreeValue={"Скрудж"}
             />
-            <OnOff />
-            <OnOff />
+            <UncontrolledOnOff />
+            <OnOff value={onOff}
+                   setOnOff={setOnOff}/>
         </div>
     );
 }
