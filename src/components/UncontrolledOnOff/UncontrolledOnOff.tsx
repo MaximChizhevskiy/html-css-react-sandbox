@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 
-export function UncontrolledOnOff() {
-    let [on, setOn] = useState(false)
+export function UncontrolledOnOff({defaultOn, onChange}: UncontrolledOnOffPropsType) {
+    defaultOn = defaultOn ? defaultOn : false
+    let [on, setOn] = useState(defaultOn)
 
     const onButtonStyle = {
         border: "1px solid black",
@@ -31,17 +32,22 @@ export function UncontrolledOnOff() {
         <div>
             <div style={onButtonStyle}
                  onClick={() => {
-                setOn(on = true)
-            }}>ON</div>
+                     setOn(on = true)
+                     onChange?.(on)
+                 }}>ON
+            </div>
             <div style={offButtonStyle}
                  onClick={() => {
-                setOn(on = false)
-            }}>OFF</div>
+                     setOn(on = false)
+                     onChange?.(on)
+                 }}>OFF
+            </div>
             <div style={lightBulb}></div>
         </div>
     );
 }
 
-/*type OnOffPropsType = {
-    value: boolean
-}*/
+type UncontrolledOnOffPropsType = {
+    defaultOn?: boolean
+    onChange?: (on: boolean) => void
+}
