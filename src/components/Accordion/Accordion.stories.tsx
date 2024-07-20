@@ -1,5 +1,6 @@
 import {action} from '@storybook/addon-actions'
 import {Accordion} from './Accordion';
+import {useState} from "react";
 
 /*const meta = {
     title: 'Accordion',
@@ -39,26 +40,40 @@ export const CollapsedTrue: StoryAccordion = {
 };*/
 
 export default {
-    component:Accordion
+    component: Accordion
 }
 
 const setAccordionCollapsed = action('collapse is changed')
+const onItemClick = action(`item was clicked`)
 
 export const CollapsedTrue = () => {
     return <Accordion titleValue={"List of Items"}
                       collapsed={true}
-                      itemOneValue={"itemOne"}
-                      itemTwoValue={"itemTwo"}
-                      itemThreeValue={"itemThree"}
+                      items={[]}
+                      onClick={onItemClick}
                       setAccordionCollapsed={setAccordionCollapsed}/>
 }
 
 export const CollapsedFalse = () => {
     return <Accordion titleValue={"List of Items"}
                       collapsed={false}
-                      itemOneValue={"itemOne"}
-                      itemTwoValue={"itemTwo"}
-                      itemThreeValue={"itemThree"}
+                      items={[{title: "Max", value: 1},
+                          {title: "Daulet", value: 2},
+                          {title: "Dauren", value: 3},
+                          {title: "Sharov", value: 4}]}
+                      onClick={onItemClick}
                       setAccordionCollapsed={setAccordionCollapsed}/>
+}
+
+export const ModeChanging = () => {
+    const [value, setValue] = useState<boolean>(false)
+    return <Accordion titleValue={"List of Items"}
+                      collapsed={value}
+                      items={[{title: "Max", value: 1},
+                          {title: "Daulet", value: 2},
+                          {title: "Dauren", value: 3},
+                          {title: "Sharov", value: 4}]}
+                      onClick={onItemClick}
+                      setAccordionCollapsed={() => setValue(!value)}/>
 }
 
