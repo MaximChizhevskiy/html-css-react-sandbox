@@ -1,18 +1,22 @@
-import {useState} from "react";
+import {useReducer} from "react";
+import {reducer} from "./reducer";
+
 
 export function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
     console.log("UncontrolledAccordion rendered")
-    const collaplseCondition = !!props.collapsed
-    let [collapsed, setCollapsed] = useState(collaplseCondition)
+    //let [collapsed, setCollapsed] = useState(collaplseCondition)
+    const [state, dispatch] = useReducer(reducer, {collapsed:false})
     return (
         <div>
-            <UncontrolledAccordionTitle title={props.titleValue}
+            {/*<UncontrolledAccordionTitle title={props.titleValue}
                                         onClick={() => {
                                             setCollapsed(!collapsed)
                                             props.onChange?.()
-                                        }}/>
-            {/*<button onClick={() => {setCollapsed(!collapsed)}}>Toggle</button>*/}
-            {!collapsed && <UncontrolledAccordionBody itemOne={props.itemOneValue}
+                                        }}/>*/}
+            <UncontrolledAccordionTitle title={props.titleValue}
+                                        onClick={() => {dispatch({type: 'TOGGLE-COLLAPSED'})
+                                        props.onChange?.()}}/>
+            {!state.collapsed && <UncontrolledAccordionBody itemOne={props.itemOneValue}
                                                       itemTwo={props.itemTwoValue}
                                                       itemThree={props.itemThreeValue}/>}
         </div>
@@ -60,4 +64,3 @@ type UncontrolledAccordionPropsType = {
     collapsed?: boolean
     onChange?: () => void
 }
-
