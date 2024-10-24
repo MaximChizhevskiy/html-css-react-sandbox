@@ -4,7 +4,6 @@ export default {
     title: 'UseEffect demo'
 }
 
-
 export const MainComponent = () => {
     console.log("Main Component")
     const [counter, setCounter] = useState(1)
