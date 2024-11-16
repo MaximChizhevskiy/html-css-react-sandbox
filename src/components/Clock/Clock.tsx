@@ -19,11 +19,11 @@ export const Clock: React.FC<ClockPropsType> = (props) => {
 
     return (
         <div>
-            <span>{date.getHours()}</span>
+            <span>{get2DigitsStrings(date.getHours())}</span>
             :
-            <span>{date.getMinutes()}</span>
+            <span>{get2DigitsStrings(date.getMinutes())}</span>
             :
-            <span>{date.getSeconds()}</span>
+            <span>{get2DigitsStrings(date.getSeconds())}</span>
         </div>
     );
 };
