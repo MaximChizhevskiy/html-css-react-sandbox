@@ -15,7 +15,7 @@ export const Clock: React.FC<ClockPropsType> = (props) => {
         return () => clearInterval(intervalId)
     }, []);
 
-    const get2DigitsStrings = (num: number) => num < 0 ? "0" + num : num
+    const get2DigitsStrings = (num: number) => num < 10 ? "0" + num : num
 
     return (
         <div>
